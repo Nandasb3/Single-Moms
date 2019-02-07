@@ -1,179 +1,359 @@
+<?php require_once("utility.php");
+require ("header.php"); 
+ob_start(); 
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>SINGLE MOMS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="2.css">
-    <script src="sticky.js"></script>
-
-
-    <style >
-        
-
-
-.container {
-    width:900px;
-    margin:250px auto 0;
-    display:flex;
-    padding-bottom: 20px;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style>
+* {
+    box-sizing: border-box;
+    /*font-family: 'Cabin', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
 }
-.container .box {
-    position:relative;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    background-image: url("images/xyz.jpg");
+    /*background: linear-gradient(to bottom, #ffcc66 0%, #ff5050 100%);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Header/Blog Title */
+/*.header {
+    padding: 1px;
+    margin-top: 0px;
+    border-radius: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} 
+
+.header h1 {
+    font-size: 50px;
+}
+*/
+/* Style the top navigation bar */
+/*.topnav {
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    font-color:black;
+    margin-top: 5px;
+}
+*/
+/* Style the topnav links */
+/*.topnav a {
+    float: center;
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+*/
+/* Change color on hover */
+/*.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+.image_section {
+    background-color: #ddd;
+    color: black;
     width: 300px;
-    height:100px;
-    box-sizing:border-box;
-    text-align:center;
-    margin:0 10px;
-    background:#00171d;
-    overflow:hidden;
-    border-radius:4px;
-    box-shadow:0 0 0 2px rgba(0,7,10,1);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.container .box .icon {
-    width:100%;
-    height:100%;
-    background:#00171d;
-    transition: 0.5s;
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 75%;
 }
-.container .box .icon .fa {
-    font-size: 4em;
-    line-height:100px;
-    color: #0ff;
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 25%;
+/*    background-color: #f1f1f1;*/
+    padding-left: 20px;
 }
-.container .box:hover .icon {
-    transform:scale(0);
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
 }
-.container .box .details {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#03a9f4;
-    transition:0.5s;
-    transform:scale(2);
-    opacity:0;
+
+/* Add a card effect for articles */
+.card_sign {
+    background-color: #FAD87B;
+    border:1px solid #ccc;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffcc66 0%, #ff9966 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.container .box:hover .details {
-    transform:scale(1);
-    opacity:1;
+.card_slides {
+    background-color: #FBEABA;
+    /*background-image: url(images/cardbg.jpg);*/
+    padding: 20px;
+    border:1px solid #ccc;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: auto;
+    background: linear-gradient(to bottom, #ffcc66 0%, #ff9966 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.container .box .details h3 {
-    margin:0;
-    padding:0;
-    line-height:100px;
-    font-size:24px;
-    color:#fff;
+.card_others {
+    background-color: #F79869;
+    padding: 20px;
+    border:1px solid #ccc;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffcc66 0%, #ff9966 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.container .box .details:nth-child(2) .details {
-    background:#e91e63;
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
-.container .box .details:nth-child(2) .details {
-    background:#607d8b;
+
+/* Footer */
+.footer {
+    padding: 10px;
+    text-align: center;
+    background: #ddd;	
+    margin-top: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
-    </style>
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
+.mySlides{
+  border-radius: 20px;
+  width:100%;
+}
+
+.textbox{
+	border-radius: 15px;
+	width:100%;
+	padding: 10px;
+
+}
+.btn_login,.btn_signup{
+	border-radius: 15px;
+	padding:5px 5px 5px 5px;
+	width:100px;
+	font-style: bold;
+	font-family: 'Cabin', sans-serif;
+}
+.btn_login:hover,.btn_signup:hover{
+	background-color: #85E86A;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input[type=text] {
+    background-color: white;
+    background-image: url('images/usericon.png');
+    background-position: 10px 10px;
+    background-size: 7%; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+input[type=password] {
+    background-color: white;
+    background-image: url('images/passicon1.png');
+    background-position: 10px 10px; 
+    background-size: 7%;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+</style>
 </head>
 <body>
-    <header class="bg-image">
-        <div class="bw-gradient"></div>
-        <div class="header">
-            <div class="sub-header">
-                    <ul class="left-menu">
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">ABOUT</a></li>
-                          
-                            <li><a href="galery.php">GALLERY</a></li>
-                            <li><a href="finalforum/index.php">FORUM</a></li>
 
-                        </ul>
-                        <div class="logo">
-                            <a href="#">Single Moms</a>
-                        </div>
-                        <ul class="right-menu">
-                              <li><a href="contactus.php">CONTACT</a></li>
-                            <!--   <li><a href="recruiter/index.php">RECRUITER</a></li> -->
-                              <li><a href="recruiter/reclogin2.php">RECRUITER</a></li>
-                     <!--        <li><a href="ad/index.php">ADVERTISER</a></li> -->
-                            <li><a href="ad/adlogin.php">ADVERTISER</a></li>
-                            <li><a href="singlemom/momlogin.php">SINGLE MOM</a></li>
-                           
-                           <!--  <li><a href="cons.php">LOG IN</a></li> -->
-                            
-                           
-                        </ul>
-            </div>
-            
-        </div>
-    </header>
-<div>
-<!--  <ul class="slideshow">
-  <li><span>Image 01</span><div class="wel"><h3>WELCOME</h3></div></li> 
-  <li><span>Image 02</span></li>
-  <li><span>Image 03</span></li>
-  <li><span>Image 04</span></li>
-  <li><span>Image 05</span></li>
-  <li><span>Image 06</span></li>
-</ul>
- --><!--   <div class="container">
-    <header>
-      <h1> <span>Single Moms</span></h1> 
-  </header>
+<!-- <div class="header">
+  <h1>Single Mom Forum</h1>
+  <p>Resize the browser window to see the effect.</p>
+</div> -->
+
+<!-- <div class="topnav">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Forum</a>
+  <a href="#">Contact</a>
+  <a href="#">Signin</a>
+  <a href="#" style="float:right"></a>
+</div> -->
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card_slides">
+      <!-- <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p> -->
+      <div class="for_slides" style="max-width:auto">
+        <center>
+          <img class="mySlides" src="images/mom1.jpg">
+          <img class="mySlides" src="imagess/11.jpg">
+          <img class="mySlides" src="images/mom3.jpg">
+          <img class="mySlides" src="images/mom4.jpg">
+        </center>
+      </div>
+      <!-- script for slide show above-->
+      <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 5000); // Change image every 2 seconds
+        }
+      </script>
+
+
+    </div>
+    <!-- <div class="card">
+      <h2>Contact Us</h2>
+      <h5>Title description, Sep 2, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div> -->
+  </div>
+  <div class="rightcolumn">
+    <div class="card_sign">
+      <center>
+      <h2 id="signin">Sign In/Sign Up</h2>
+      <!-- <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p> -->
+      <form action="loginH.php" method="POST" onsubmit="return check(this)" class="login">
+          <input type="text" name="uid" placeholder="Username" class="textbox"><span id='spuid' class="name" style="color: red;"></span><br>
+          <br>
+          <input type="password" name="pwd" placeholder="Password" class="textbox"><span id='sppwd' class="password" style="color: red;"></span><br>
+          <br>
+          <input type="submit" name="login" value="Login" class="btn_login">&nbsp<input type="button" name="signup" value="Signup" class="btn_signup" onclick="location.href='register.php';">
+      </form>
+      <script type="text/javascript">
+			function check(f)
+			{
+				if(f.uid.value=="")	
+				{
+					document.getElementById("spuid").innerHTML="Please,Enter the user id ";
+					//alert("Please,Enter Your User Id")
+					f.uid.focus()
+					return false;
+				}
+				if(f.pwd.value=="")
+				{
+					document.getElementById("sppwd").innerHTML="Please,Enter the password";
+					//alert("Please,Enter Your Password")
+					f.pwd.focus()
+					return false;
+				}			
+				else
+					return true;
+			}								
+	  </script>
+	  <?php
+			if (isset ($_GET["act"]))
+				if ($_GET["act"] == "invalid")
+					echo "Invalid Credentials";
+	  ?>
+      </center>
+    </div>
+    <!-- <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div> -->
+    <div class="card_others">
+      <h3>What we do...</h3>
+      	<!-- <div class="w3-content w3-section" style="max-width:1000px">
+        <center>
+          <img class="doslides" src="images/advertising.jpg" style="width:100%">
+          <img class="doslides" src="images/jobpost.jpg" style="width:100%">
+          <img class="doslides" src="images/forum2.jpg" style="width:100%">
+        </center>
+        <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+        var i;
+        var x = document.getElementsByClassName("doslides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 5000); // Change image every 2 seconds
+        }
+      </script>
+      </div> -->
+      <img class="doslides" src="images/openforum.gif" style="width:100%">
+    </div>
+  </div>
 </div>
-    
 
-    <p class="para">
-        
-    </p>
+<!-- <div class="footer">
+  <h2>Footer</h2>
+</div> -->
 
-    <p class="para">
-            
-        </p>
-        <hr class="hr">
-        <div class="hello">
-            
-            
-        </div> -->
-
-        <div class="about">
-            
-        <p> We are Developers </p>
-  
-        </div> 
-<hr>
-      
-<div class="container">
-
-
-
-
-    <div class="box">
-        <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-        <div class='details'><h3>Bangalore</h3></div>
-    </div>
-    
-    <div class="box">
-        <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
-        <div class='details'><h3>+91 9901147437</h3></div>
-    </div>
-    
-    <div class="box">
-        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-        <div class='details'><h3>singlemoms@gmail.com</h3></div>
-    </div>
-</div>
 </body>
 </html>
